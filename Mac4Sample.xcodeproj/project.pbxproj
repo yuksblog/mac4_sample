@@ -11,6 +11,7 @@
 		24144A172961553F000872A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144A162961553F000872A6 /* ContentView.swift */; };
 		24144A1929615540000872A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24144A1829615540000872A6 /* Assets.xcassets */; };
 		24144A1C29615540000872A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24144A1B29615540000872A6 /* Preview Assets.xcassets */; };
+		24144A23296155D2000872A6 /* MotionSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144A22296155D2000872A6 /* MotionSensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		24144A162961553F000872A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24144A1829615540000872A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24144A1B29615540000872A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		24144A22296155D2000872A6 /* MotionSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionSensor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				24144A162961553F000872A6 /* ContentView.swift */,
 				24144A1829615540000872A6 /* Assets.xcassets */,
 				24144A1A29615540000872A6 /* Preview Content */,
+				24144A22296155D2000872A6 /* MotionSensor.swift */,
 			);
 			path = Mac4Sample;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24144A23296155D2000872A6 /* MotionSensor.swift in Sources */,
 				24144A172961553F000872A6 /* ContentView.swift in Sources */,
 				24144A152961553F000872A6 /* Mac4SampleApp.swift in Sources */,
 			);

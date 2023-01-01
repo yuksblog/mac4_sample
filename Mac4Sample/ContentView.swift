@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var sensor = MotionSensor()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(sensor.xStr)
+            Text(sensor.yStr)
+            Text(sensor.zStr)
+            Button(action: {
+                self.sensor.isStarted ? self.sensor.stop() : self.sensor.start()
+            }) {
+                self.sensor.isStarted ? Text("STOP") : Text("START")
+            }
         }
-        .padding()
     }
 }
 
