@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+struct MyData {
+    var timestamp: Date
+    var name: String
+    var number: Int
+}
+
 struct ContentView: View {
     @ObservedObject var sensor = MotionSensor()
     
     var body: some View {
         VStack {
+            Spacer()
             Text(sensor.xStr)
             Text(sensor.yStr)
             Text(sensor.zStr)
@@ -20,6 +27,13 @@ struct ContentView: View {
             }) {
                 self.sensor.isStarted ? Text("STOP") : Text("START")
             }
+            Spacer()
+            Button(action: {
+                sensor.share()
+            }) {
+                Image(systemName:"square.and.arrow.up")
+            }
+            Spacer()
         }
     }
 }
