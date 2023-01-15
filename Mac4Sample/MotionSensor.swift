@@ -25,7 +25,9 @@ class MotionSensor: NSObject, ObservableObject {
     var datas: [MotionData] = []
     
     // 共有するファイルのパス
-    private var sharePath = ""
+    var sharePath = ""
+    
+    var elapsedTime = 0
     
     func start() {
         if motionManager.isDeviceMotionAvailable {
@@ -35,6 +37,8 @@ class MotionSensor: NSObject, ObservableObject {
             
             // 配列をクリア
             datas = []
+
+            elapsedTime = 0
             
             // センサー値の取得を開始
             motionManager.deviceMotionUpdateInterval = 0.1
@@ -54,9 +58,9 @@ class MotionSensor: NSObject, ObservableObject {
         if !datas.isEmpty {
             
             // 配列からCSV形式の文字列を作成する
-            var csv = "X,Y,Z\n"
+            var csv = "Time,X,Y,Z\n"
             datas.forEach { data in
-                csv.append(contentsOf: "\(data.x),\(data.y),\(data.z)\n")
+                csv.append(contentsOf: "\(data.elapsedTime),\(data.x),\(data.y),\(data.z)\n")
             }
             
             // ファイル名は日付＋時刻とする
@@ -110,12 +114,14 @@ class MotionSensor: NSObject, ObservableObject {
             return
         }
         
+        elapsedTime = elapsedTime + 100
+        
         xStr = String(deviceMotion.userAcceleration.x)
         yStr = String(deviceMotion.userAcceleration.y)
         zStr = String(deviceMotion.userAcceleration.z)
         
         // データを配列に追加
-        let data = MotionData(x: deviceMotion.userAcceleration.x, y: deviceMotion.userAcceleration.y, z: deviceMotion.userAcceleration.z)
+        let data = MotionData(elapsedTime: elapsedTime, x: deviceMotion.userAcceleration.x, y: deviceMotion.userAcceleration.y, z: deviceMotion.userAcceleration.z)
         datas.append(data)
     }
     
